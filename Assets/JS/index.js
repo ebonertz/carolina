@@ -1,12 +1,16 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
 // Shotclock 30 seconds countdown
+
+$('.start-button').click(function(){
+    $('.start-button').hide();
     var shotClock = 30;
     var countDown = setInterval (function() {
         shotClock = shotClock - 1; //subtract one from variable
         $('#timer').text("Shot Clock : " + shotClock);
         if (shotClock < 1) {
-        alert("Shotclock Expired"); //Alert user that Shotclock has expired
+        alert("Shotclock Expired. Click Start button to try again"); //Alert user that Shotclock has expired
+        $('.start-button').show();
         clearInterval(countDown); //stop the countdown
      }
     }, 1000);
@@ -47,13 +51,12 @@ $(document).ready(function() {
                 }
                 if(fouls===0){
                     alert('You Fouled Out!');
+                    $('.start-button').show();
                 }
             }
             flippedNames = [];
             flippedCards = [];
         }, 1000);
-
         firstFlip = true;
-
     }; //This closes the else statement
 }); //This closes the click function
